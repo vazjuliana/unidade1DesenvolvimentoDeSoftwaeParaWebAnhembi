@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap")
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sinzing: border-box;
+}
+
+body {
+    background: #1F1517;
+    color: #FFFFFF;
+    max-width: 1120px;
+    margin: auto;
+    padding: 1.5 rem, 10rem;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+}
+
+.catalogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1120px;
+    font-size: 18px
+}
+
+.lampadas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.lustres{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem
+}
+
+.luminarias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem
+}
+
+img{
+    width: 240px;
+    height: 200px;
+    border: 2px solid #FFFFFF;
+    border-radius: 0.5rem;
+}
+
+hr{
+    border-color: #A45A49;
+    margin-top: 15px;
+}
+
+.convite{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px:
+}
+
+.formulario{
+    max-width: 35%;
+    margin: 0 auto;
+    border-top: 5px;
+    gap: 10px;
+}
+
+button{
+    padding: 10px;
+    background-color: #006400;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 25%;
+    justify: center;
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+
+.rodape{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-rodape{
+    display: flex;
+    flex-direction: row;
+} 
+
+footer > div > a > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 20px;
+}
+
+
+
+
+
+
+
+
