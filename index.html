@@ -50,18 +50,22 @@
             <p class="convite">Caso tenha interesse em nossos produtos cadastre-se, e entraremos em contato o mais breve
                 possível</p>
             <form class="formulario" method="post">
-                <label for="Nome">Nome:</label>
-                <input type="Nome" id="Nome" name="Nome" required />
+                <input class= "required" placeholder="Digite seu nome" type="Nome" id="Nome" name="Nome" oninput="nameValidate()" required />
+                <span class="span-required">O seu nome deve ter no mínimo 3 caracteres</span>
+                
+                <input class= "required" placeholder="Telefone" type="Telefone" id="Telefone" name="Telefone" oninput="telefoneValidade()" required />
+                <span class="span-required">O telefone deve ter no mínimo 8 dígitos</span>
+                
+                <input class= "required" placeholder="CPF" type="CPF" id="CPF" name="CPF" oninput="CPFValidade()" required />
+                <span class="span-required">CPF inválido, utilize o padrão 000.000.000-00</span>
 
-                <label for="Telefone">Telefone:</label>
-                <input type="Telefone" id="Telefone" name="Telefone" required />
+                <input class= "required" placeholder="Digite seu e-mail" type="email" id="email" name="email" oninput="emailValidate()" required />
+                <span class="span-required">Email inválido</span>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required />
+                <div class="botao">
+                    <button class="botao" type="submit">Enviar</button>
+                </div>
             </form>
-            <div class="botao">
-                <button class="botao" type="submit">Enviar</button>
-            </div>
         </section>
     </main>
     <hr />
@@ -73,5 +77,55 @@
         <p>Luz ingá LTDA - 2024</p>
     </footer>
 </body>
+<script>
+    const form = document.getElementsByClassName(".formulario");
+    const campos = document.querySelectorAll(".required");
+    const span = document.querySelectorAll(".span-required");
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const CPFRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    const telefoneRegex = /^\d{8,}$/;
 
+    function setError(index){
+        campos[index].style.border = "2px solid #e63636";
+        span[index].style.display = "block";
+    }
+
+    function removeError(index){
+        campos[index].style.border = "";
+        span[index].style.display = "none";
+    }
+
+    function nameValidate(){
+        if(campos[0].value.length < 3){
+            setError(0);
+        }else{
+            removeError(0);
+        }
+    }
+
+    function telefoneValidade(){
+        if(!telefoneRegex.test(campos[1].value)){
+            setError(1);
+        }else{
+            removeError(1);
+        }
+    }
+
+    function CPFValidade(){
+        if(!CPFRegex.test(campos[2].value)){
+            setError(2);
+        }else{
+            removeError(2);
+        }
+    }
+
+    function emailValidate(){
+        if(!emailRegex.test(campos[3].value)){
+            setError(3);
+        }else{
+            removeError(3);
+        }
+    }
+
+</script>
 </html>

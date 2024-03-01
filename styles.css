@@ -93,6 +93,13 @@ button{
     justify: center;
 }
 
+.span-required{
+    display: none;
+    font-size: 12px;
+    margin: 3px 0 0  1px;
+    color:  #e63636;
+}
+
 .botao{
     display: flex;
     justify-content: center;
