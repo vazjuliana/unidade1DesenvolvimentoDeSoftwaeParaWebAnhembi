@@ -49,21 +49,30 @@
         <section>
             <p class="convite">Caso tenha interesse em nossos produtos cadastre-se, e entraremos em contato o mais breve
                 possível</p>
-            <form class="formulario" method="post">
-                <input class= "required" placeholder="Digite seu nome" type="Nome" id="Nome" name="Nome" oninput="nameValidate()" required />
+            <form class="formulario" action="formulario.php" method="POST">
+                <input class= "required" placeholder="Digite seu nome" type="nome" id="nome" name="nome" oninput="nameValidate()" required />
                 <span class="span-required">O seu nome deve ter no mínimo 3 caracteres</span>
                 
-                <input class= "required" placeholder="Telefone" type="Telefone" id="Telefone" name="Telefone" oninput="telefoneValidade()" required />
+                <input class= "required" placeholder="telefone" type="telefone" id="telefone" name="telefone" oninput="telefoneValidade()" required />
                 <span class="span-required">O telefone deve ter no mínimo 8 dígitos</span>
-                
+
                 <input class= "required" placeholder="CPF" type="CPF" id="CPF" name="CPF" oninput="CPFValidade()" required />
                 <span class="span-required">CPF inválido, utilize o padrão 000.000.000-00</span>
 
                 <input class= "required" placeholder="Digite seu e-mail" type="email" id="email" name="email" oninput="emailValidate()" required />
                 <span class="span-required">Email inválido</span>
 
+                <input class= "required" placeholder="endereco" type="endereco" id="endereco" name="endereco" required />
+
+                <input class= "required" placeholder="CEP" type="CEP" id="CEP" name="CEP" oninput="CEPValidade()" required />
+                <span class="span-required">O CEP deve conter o formato 00000-000</span>
+
+                <input class= "required" placeholder="cidade" type="cidade" id="cidade" name="cidade" />
+
+                <textarea id="produtos" placeholder="Faça aqui o seu pedido e nos entraremos em contato para realizarmos a entrega"name="produtos" rows="5" cols="50"></textarea><br>
+                
                 <div class="botao">
-                    <button class="botao" type="submit">Enviar</button>
+                    <button class="botao" type="submit" name="submit" id="submit">Enviar</button>
                 </div>
             </form>
         </section>
@@ -84,6 +93,7 @@
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const CPFRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
     const telefoneRegex = /^\d{8,}$/;
+    const CEPRegex = /^\d{5}-\d{3}$/;
 
     function setError(index){
         campos[index].style.border = "2px solid #e63636";
@@ -124,6 +134,14 @@
             setError(3);
         }else{
             removeError(3);
+        }
+    }
+
+    function CEPValidade(){
+        if(!CEPRegex.test(campos[5].value)){
+            setError(5);
+        }else{
+            removeError(5);
         }
     }
 
